@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil DevOps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+  <div class="topbar">
+    <div class="dot dot-r"></div>
+    <div class="dot dot-y"></div>
+    <div class="dot dot-g"></div>
+    <span class="topbar-title">student-profile.sh</span>
+  </div>
+
+  <div class="body">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="avatar">
+         <img id="photoPreview" src="foto.jpg" alt="Foto" height="150"/>
+      </div>
+
+      <div class="info">
+        <p class="label">// aluno</p>
+        <h1 class="name" id="studentName">Felipe Barbisan</h1>
+        <div class="badge">
+          <div class="badge-dot"></div>
+          <span id="courseName">Análise e Desenvolvimento de Sistemas</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Quote -->
+    <div class="quote-block">
+      <p class="quote-label">// frase_devops</p>
+      <p class="quote-text" id="quoteText">
+        "<strong>DevOps</strong> não é uma ferramenta nem um cargo — é uma <strong>cultura</strong> de colaboração contínua entre desenvolvimento e operações, onde <strong>automatizar</strong>, <strong>monitorar</strong> e <strong>entregar rápido</strong> se tornam a essência do trabalho."
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-icon">⚙️</div>
+        <div class="stat-value">CI/CD</div>
+        <div class="stat-name">Pipeline</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">🐳</div>
+        <div class="stat-value">Docker</div>
+        <div class="stat-name">Containers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">☁️</div>
+        <div class="stat-value">Cloud</div>
+        <div class="stat-name">Infraestrutura</div>
+      </div>
+    </div>
+
+    <!-- Terminal -->
+    <div class="terminal" id="terminal">
+      <div><span class="t-prompt">student@devops:~$</span> <span class="t-cmd">whoami</span></div>
+      <div><span class="t-out">→ </span><span class="t-val" id="tName">Felipe Barbisan</span></div>
+      <div><span class="t-prompt">student@devops:~$</span> <span class="t-cmd">echo $CURSO</span></div>
+      <div><span class="t-out">→ </span><span class="t-val" id="tCurso">Análise e Desenvolvimento de Sistemas</span></div>
+      <div><span class="t-prompt">student@devops:~$</span> <span class="t-cmd">git push origin main</span></div>
+      <div><span class="t-out">→ Branch 'main' enviado com sucesso 🚀</span></div>
+      <div><span class="t-prompt">student@devops:~$</span> <span class="cursor"></span></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="footer-tag">// 2026 · DevOps Culture</span>
+      <div class="status">
+        <div class="status-dot"></div>
+        SISTEMA ONLINE
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // ── Personalize aqui ──────────────────────────────────────
+  const ALUNO  = "Felipe Barbisan";
+  const CURSO  = "Análise e Desenvolvimento de Sistemas AMS";
+  // ─────────────────────────────────────────────────────────
+
+  document.getElementById("studentName").textContent = ALUNO;
+  document.getElementById("courseName").textContent  = CURSO;
+  document.getElementById("tName").textContent        = ALUNO;
+  document.getElementById("tCurso").textContent       = CURSO;
+
+  // Efeito de digitação no terminal
+  const terminal = document.getElementById("terminal");
+  const lines = terminal.querySelectorAll("div");
+  lines.forEach((line, i) => {
+    line.style.opacity = "0";
+    line.style.transition = "opacity 0.25s ease";
+    setTimeout(() => { line.style.opacity = "1"; }, i * 160);
+  });
+</script>
+</body>
+</html>
